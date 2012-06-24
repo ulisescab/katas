@@ -1,53 +1,53 @@
 # encoding: UTF-8
-
+ 
 class Numero
-	attr_accessor :numero
+  attr_accessor :numero
 
-	def initialize(numero)
-		@valor = numero
-	end 
+  def initialize(numero)
+  	@valor = numero
+  end 
 
-	def esPerfecto?  
-		if @valor == sumaDivisoresSinNumero 
-			return true 
-		else
-			return false
-		end
-	end
+  def esPerfecto?  
+  	if @valor == sumaDivisoresSinNumero 
+  		return true 
+  	else
+  		return false
+  	end
+  end
 
-	def obtieneDivisores
-		@divisores = []
-		divisor = @valor 
-		until divisor == 0
-			residuo = @valor % divisor
-			cociente = @valor / divisor   
-			if residuo == 0
-				@divisores.push cociente 
-				divisor =  @valor / (cociente+1)
-			else
-				divisor = divisor - 1
-			end
-		end 
-	end
+  def obtieneDivisores
+  	@divisores = []
+  	divisor = @valor 
+  	until divisor == 0
+  		residuo = @valor % divisor
+  		cociente = @valor / divisor   
+  		if residuo == 0
+  			@divisores.push cociente 
+  			divisor =  @valor / (cociente+1)
+  		else
+  			divisor = divisor - 1
+  		end
+  	end 
+  end
 
-	def muestraDivisores
-		cadena = ""
-		@divisores.each do |value|
-			cadena = cadena + value.to_s + " "
-		end
-		return cadena  
-	end
+  def muestraDivisores
+  	cadena = ""
+  	@divisores.each do |value|
+  		cadena = cadena + value.to_s + " "
+  	end
+  	return cadena  
+  end
 
-	def sumaDivisoresSinNumero
-		suma = 0
-		obtieneDivisores
-		@divisores.each do |value|
-			if @valor != value 
-				suma = suma + value
-			end  
-		end
-		return suma
-	end
+  def sumaDivisoresSinNumero
+  	suma = 0
+  	obtieneDivisores
+  	@divisores.each do |value|
+  		if @valor != value 
+  			suma = suma + value
+  		end  
+  	end
+  	return suma
+  end
 
 end
 
